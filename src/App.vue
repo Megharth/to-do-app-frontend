@@ -1,29 +1,23 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
     <router-view/>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
+<style lang="sass">
+@import "./sass/variables"
+
+#app
+  font-family: $ubuntu
+.heading
+  font-family: $pacifico
+  font-size: 38px
+
+.fab
+  border-radius: 50%
+  background: #09BC8A
+  height: 42px
+  width: 42px
+  box-shadow: 0 4px 4px rgba(0,0,0,.25)
+
 </style>
