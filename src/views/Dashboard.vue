@@ -9,31 +9,13 @@
             </div>
         </div>
         <div id="note-list">
-            <div class="note-item" @click="showModal = true">
+            <div class="note-item" @click="showModal = true" v-for="note in notes.slice(0,3)">
                 <div class="note-item-icon">
                     <img src="../assets/noteIcon.svg" alt="note-icon" class="img-fluid">
                 </div>
                 <div class="note-item-content">
-                    <div class="name">Note1</div>
-                    <div class="date">Created at 1/1/2019</div>
-                </div>
-            </div>
-            <div class="note-item" @click="showModal = !showModal">
-                <div class="note-item-icon">
-                    <img src="../assets/noteIcon.svg" alt="note-icon" class="img-fluid">
-                </div>
-                <div class="note-item-content">
-                    <div class="name">Note1</div>
-                    <div class="date">Created at 1/1/2019</div>
-                </div>
-            </div>
-            <div class="note-item" @click="showModal = true">
-                <div class="note-item-icon">
-                    <img src="../assets/noteIcon.svg" alt="note-icon" class="img-fluid">
-                </div>
-                <div class="note-item-content">
-                    <div class="name">Note 1</div>
-                    <div class="date">Created at 1/1/2019</div>
+                    <div class="name">{{note.title}}</div>
+                    <div class="date">Created at {{note.created_at}}</div>
                 </div>
             </div>
             <div id="scroll" class="fab" @click="$router.push('notes')">
@@ -57,10 +39,21 @@ import noteModal from '../components/noteModal'
             return {
                 showModal: false,
                 note: {
-                    title: null,
-                    content: null
-                }
+                  title: null,
+                  content: null
+                },
+                notes: []
             }
+        },
+        created() {
+            let token = this.$store.state.user.token
+            this.$http.get('http://todo.test/notes', {
+                headers: {
+                    authorization: 'Bearer ' + token
+                }
+            }).then(function(response) {
+                this.notes = response.body.notes
+            })
         }
     }
 </script>

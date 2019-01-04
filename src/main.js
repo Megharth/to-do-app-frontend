@@ -7,8 +7,10 @@ import router from './router'
 import store from './store'
 import './registerServiceWorker'
 import BootstrapVue from 'bootstrap-vue'
+import VueResource from 'vue-resource'
 
 Vue.use(BootstrapVue);
+Vue.use(VueResource);
 Vue.config.productionTip = false
 
 new Vue({
