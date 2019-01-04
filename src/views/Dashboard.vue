@@ -36,7 +36,7 @@
                     <div class="date">Created at 1/1/2019</div>
                 </div>
             </div>
-            <div id="scroll" class="fab">
+            <div id="scroll" class="fab" @click="$router.push('notes')">
                 <img src="../assets/arrow.svg" alt="arrow" class="img-fluid">
             </div>
         </div>
