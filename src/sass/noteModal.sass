@@ -1,0 +1,49 @@
+#noteModal
+  background: rgba(0,0,0,0.25)
+  position: absolute
+  height: 100%
+  width: 100%
+  z-index: 99
+
+.note
+  background: #FBD166
+  border-radius: 10px
+  position: absolute
+  margin-top: 10%
+  height: 400px
+  width: 300px
+  left: 50%
+  box-shadow: 0 4px 4px rgba(0,0,0,0.25)
+  padding-top: 15px
+  transform: translate(-50%, 0)
+  .title
+    position: absolute
+    background: black
+    input
+      font-size: 18px
+      font-weight: bolder
+      color: white
+  .content
+    margin-top: 60px
+    textarea
+      font-size: 12px
+      text-align: justify
+#close
+  position: absolute
+  top: -10px
+  right: -10px
+  background: #E32828
+  img
+    padding-top: 13px
+    padding-left: 12px
+#update
+  position: absolute
+  bottom: -10px
+  right: -10px
+  img
+    padding-left: 9px
+    padding-top: 12px
+
+@media (min-width: 320px) and (max-width: 640px)
+  .note
+    margin-top: 25%

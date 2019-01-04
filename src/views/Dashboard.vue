@@ -9,7 +9,7 @@
             </div>
         </div>
         <div id="note-list">
-            <div class="note-item">
+            <div class="note-item" @click="showModal = true">
                 <div class="note-item-icon">
                     <img src="../assets/noteIcon.svg" alt="note-icon" class="img-fluid">
                 </div>
@@ -18,7 +18,7 @@
                     <div class="date">Created at 1/1/2019</div>
                 </div>
             </div>
-            <div class="note-item">
+            <div class="note-item" @click="showModal = !showModal">
                 <div class="note-item-icon">
                     <img src="../assets/noteIcon.svg" alt="note-icon" class="img-fluid">
                 </div>
@@ -27,7 +27,7 @@
                     <div class="date">Created at 1/1/2019</div>
                 </div>
             </div>
-            <div class="note-item">
+            <div class="note-item" @click="showModal = true">
                 <div class="note-item-icon">
                     <img src="../assets/noteIcon.svg" alt="note-icon" class="img-fluid">
                 </div>
@@ -40,14 +40,22 @@
                 <img src="../assets/arrow.svg" alt="arrow" class="img-fluid">
             </div>
         </div>
+        <noteModal v-if="showModal" @closeModal="showModal = false"></noteModal>
     </div>
 </template>
 
 <script>
+
+import noteModal from '../components/noteModal'
+
     export default {
         name: "Dashboard",
+        components: {
+            'noteModal': noteModal
+        },
         data() {
             return {
+                showModal: false,
                 note: {
                     title: null,
                     content: null
@@ -60,37 +68,4 @@
 <style lang="sass" scoped>
 @import ../sass/variables
 @import ../sass/dashboard
-
-#create
-    position: absolute
-    bottom: -15px
-    right: 15px
-    img
-        padding-left: 9px
-        padding-top: 12px
-
-#scroll
-    position: absolute
-    bottom: 10px
-    right: 15px
-    img
-        padding-left: 13px
-        padding-top: 15px
-
-#note-title
-    font-family: $pacifico
-    font-size: 28px
-    margin-top: 10px
-    height: 50px
-
-.line
-    height: 1px
-    width: 95%
-    border-bottom: 2px solid rgba(0,0,0,0.25)
-.form-control
-    background: transparent
-    border: 0
-    outline: 0
-    box-shadow: 0 0 0
-
 </style>

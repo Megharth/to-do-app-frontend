@@ -9,6 +9,8 @@
 
 #app
   font-family: $ubuntu
+  transition: all 0.2s ease-in
+
 .heading
   font-family: $pacifico
   font-size: 38px
@@ -20,4 +22,12 @@
   width: 42px
   box-shadow: 0 4px 4px rgba(0,0,0,.25)
 
+.form-control, .form-control:focus
+  background: transparent
+  border: 0
+  outline: 0
+  box-shadow: 0 0 0
+
+::-webkit-scrollbar
+  display: none
 </style>
